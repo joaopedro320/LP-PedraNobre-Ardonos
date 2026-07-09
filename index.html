@@ -57,7 +57,7 @@
   "@type": "Organization",
   "name": "Pedra Nobre Concept",
   "url": "https://concept.pedranobre.com.br/",
-  "logo": "https://concept.pedranobre.com.br/assets/logo/pedra-nobre-concept.png",
+  "logo": "https://concept.pedranobre.com.br/assets/logo/logo-horizontal-dark.webp",
   "foundingDate": "2020",
   "foundingLocation": "Formiga, MG, Brasil"
 }
@@ -132,12 +132,12 @@ button{font-family:inherit;cursor:pointer;}
 h1,h2,h3{
   font-weight:500;
   letter-spacing:-.01em;
-  line-height:1.35;
+  line-height:1.18;
   color:var(--ink);
 }
 h2{font-size:clamp(28px,3.6vw,42px);}
 h3{font-size:20px;font-weight:600;}
-.script{font-family:var(--script);font-weight:400;color:var(--gold-deep);font-size:.82em;line-height:1;display:inline-block;padding:0 .05em;white-space:nowrap;vertical-align:baseline;}
+.script{color:var(--gold-deep);font-weight:600;}
 em{font-style:normal;color:var(--gold-deep);}
 p.lead{font-size:17px;color:var(--ink-soft);max-width:640px;}
 .section{padding:96px 0;}
@@ -183,10 +183,7 @@ header{
 header.scrolled{box-shadow:0 6px 24px rgba(61,61,61,.08);background:rgba(250,248,243,.97);}
 .nav{display:flex;align-items:center;justify-content:space-between;height:var(--header-h);transition:height .3s var(--ease);}
 .logo-mark{display:flex;align-items:center;gap:12px;}
-.logo-mark svg{height:34px;width:auto;}
-.logo-text{display:flex;flex-direction:column;line-height:1;}
-.logo-text b{font-size:16px;font-weight:700;letter-spacing:.08em;}
-.logo-text span{font-family:var(--script);font-size:15px;color:var(--gold-deep);margin-top:2px;}
+.logo-img{height:40px;width:auto;display:block;}
 .nav-links{display:flex;align-items:center;gap:34px;}
 .nav-links a{font-size:13.5px;letter-spacing:.03em;font-weight:500;position:relative;padding:4px 0;}
 .nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold-deep);transition:width .3s var(--ease);}
@@ -202,14 +199,14 @@ header.scrolled{box-shadow:0 6px 24px rgba(61,61,61,.08);background:rgba(250,248
 .hero-bg{position:absolute;inset:-12% 0 -12% 0;z-index:0;will-change:transform;}
 .hero-bg img{width:100%;height:100%;object-fit:cover;}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg, rgba(61,61,61,.86) 0%, rgba(61,61,61,.62) 42%, rgba(61,61,61,.18) 75%);}
-.hero-inner{position:relative;z-index:2;color:var(--off);padding:80px 0;}
+.wrap.hero-inner{position:relative;z-index:2;color:var(--off);padding-top:80px;padding-bottom:80px;}
 .hero-badge{
   display:inline-flex;align-items:center;gap:10px;
   font-size:12px;letter-spacing:.18em;text-transform:uppercase;
   color:var(--gold);border:1px solid rgba(209,192,138,.5);
   padding:9px 18px;border-radius:2px;margin-bottom:28px;
 }
-.hero h1{font-size:clamp(34px,5.4vw,64px);max-width:780px;color:var(--white);font-weight:500;line-height:1.38;}
+.hero h1{font-size:clamp(34px,5.4vw,64px);max-width:780px;color:var(--white);font-weight:500;line-height:1.2;}
 .hero p.lead{color:rgba(250,248,243,.86);margin-top:22px;max-width:560px;font-size:17px;}
 .hero-stats{display:grid;grid-template-columns:repeat(4,auto);gap:44px;margin-top:70px;max-width:640px;}
 .stat b{display:block;font-size:30px;color:var(--gold);font-weight:600;}
@@ -368,9 +365,8 @@ form{background:var(--white);border:1px solid var(--line);padding:38px;border-ra
 /* ===== FOOTER ===== */
 footer{background:var(--ink);color:rgba(250,248,243,.75);padding:64px 0 30px;}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;}
-.foot-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
-.foot-logo svg{height:30px;}
-.foot-logo b{color:var(--off);font-size:15px;letter-spacing:.06em;}
+.foot-logo{display:flex;align-items:center;margin-bottom:18px;}
+.foot-logo-img{height:64px;width:auto;display:block;}
 .foot-col h5{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
 .foot-col a,.foot-col p{display:block;font-size:13.5px;margin-bottom:10px;color:rgba(250,248,243,.72);}
 .foot-col a:hover{color:var(--gold);}
@@ -472,11 +468,22 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
 /* Mobile */
 @media(max-width:720px){
   :root{--header-h:60px;}
-  .hero{min-height:100vh;min-height:100svh;}
-  .hero-inner{padding:64px 0 56px;}
-  .hero-badge{font-size:11px;padding:8px 14px;margin-bottom:20px;}
-  .hero h1{line-height:1.4;}
-  .hero-stats{grid-template-columns:repeat(2,1fr);gap:22px 18px;margin-top:44px;}
+  .wrap{padding:0 20px;}
+  .logo-img{height:30px;}
+  .hero{min-height:auto;align-items:flex-start;padding-top:var(--header-h);}
+  .wrap.hero-inner{width:100%;padding-top:48px;padding-bottom:42px;}
+  .hero-bg{inset:0;}
+  .hero-bg::after{background:linear-gradient(100deg, rgba(61,61,61,.9) 0%, rgba(61,61,61,.72) 58%, rgba(61,61,61,.34) 100%);}
+  .hero-badge{font-size:10.5px;line-height:1.45;letter-spacing:.14em;padding:8px 12px;margin-bottom:20px;max-width:100%;flex-wrap:wrap;}
+  .hero h1{font-size:clamp(31px,8.2vw,36px);line-height:1.12;letter-spacing:-.035em;max-width:100%;text-wrap:auto;overflow-wrap:normal;word-break:normal;}
+  .hero-title .hero-title-line{display:block;}
+  .hero-title .script{white-space:nowrap;}
+  .hero p.lead{font-size:15.5px;line-height:1.6;margin-top:18px;max-width:100%;}
+  .hero-stats{grid-template-columns:repeat(2,1fr);gap:22px 18px;margin-top:38px;}
+
+  .hero .cta-row{width:100%;}
+  .hero .cta-row .btn{width:100%;}
+  .hero .hero-stats{width:100%;}
   .stat b{font-size:26px;}
   .linhas-grid{grid-template-columns:1fr;}
   .dif-grid{grid-template-columns:1fr;}
@@ -512,12 +519,15 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
 @media(max-width:380px){
   .hero-stats{grid-template-columns:1fr 1fr;}
   .wrap{padding:0 18px;}
+  .hero h1{font-size:30px;line-height:1.12;}
+  .hero-title .script{white-space:normal;}
+  .hero-badge{font-size:10px;letter-spacing:.11em;}
   .linha-num{font-size:11px;padding:4px 9px;}
 }
 /* Landscape phones — hero shouldn't force a full extra screen of empty scroll */
 @media(max-width:900px) and (orientation:landscape) and (max-height:500px){
   .hero{min-height:auto;padding-top:calc(var(--header-h) + 24px);}
-  .hero-inner{padding:32px 0;}
+  .wrap.hero-inner{padding-top:32px;padding-bottom:32px;}
   .hero-stats{margin-top:32px;}
 }
 
@@ -551,12 +561,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
 <header>
   <div class="wrap nav">
     <a href="#topo" class="logo-mark" aria-label="Pedra Nobre Concept">
-      <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="8,80 32,15 56,80" fill="#D1C08A"/>
-        <polygon points="44,80 68,15 92,80" fill="#D1C08A"/>
-        <polygon points="38,80 50,45 62,80" fill="#3D3D3D"/>
-      </svg>
-      <span class="logo-text"><b>PEDRA NOBRE</b><span>concept</span></span>
+      <img src="assets/logo/logo-horizontal-dark.webp" alt="Pedra Nobre Concept" class="logo-img">
     </a>
     <nav class="nav-links">
       <a href="#origem">Sobre</a>
@@ -568,8 +573,8 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
     </nav>
     <div class="nav-cta">
       <a href="https://wa.me/5537999858552?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Pedra%20Nobre%20Concept%20e%20gostaria%20de%20criar%20uma%20pe%C3%A7a%20personalizada%20em%20rocha%20natural." class="btn btn-primary" target="_blank" rel="noopener" data-gtm="whatsapp_menu">
-        <svg class="nav-wa-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        <svg class="nav-wa-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2.05 22l5.27-1.38a9.86 9.86 0 0 0 4.72 1.2h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.14h-.01a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.55 3.71-8.25 8.27-8.25a8.24 8.24 0 0 1 8.25 8.25c0 4.55-3.71 8.23-8.26 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2.01-1.24-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.76-1.85-.2-.48-.4-.41-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.75 2.67 4.24 3.74.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.14-1.18-.06-.1-.22-.16-.47-.29z"/>
         </svg>
         <span>Falar no WhatsApp</span>
       </a>
@@ -586,8 +591,8 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
   <a href="#processo">Processo</a>
   <a href="#contato">Contato</a>
   <a href="https://wa.me/5537999858552?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Pedra%20Nobre%20Concept%20e%20gostaria%20de%20criar%20uma%20pe%C3%A7a%20personalizada%20em%20rocha%20natural." target="_blank" rel="noopener" class="mobile-menu-wa">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2.05 22l5.27-1.38a9.86 9.86 0 0 0 4.72 1.2h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.14h-.01a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.55 3.71-8.25 8.27-8.25a8.24 8.24 0 0 1 8.25 8.25c0 4.55-3.71 8.23-8.26 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2.01-1.24-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.76-1.85-.2-.48-.4-.41-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.75 2.67 4.24 3.74.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.14-1.18-.06-.1-.22-.16-.47-.29z"/>
     </svg>
     Falar no WhatsApp
   </a>
@@ -600,7 +605,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
   </div>
   <div class="wrap hero-inner">
     <span class="hero-badge">Design autoral · Formiga/MG · desde 2020</span>
-    <h1>Peças autorais em <span class="script">rochas naturais</span> para ambientes que contam histórias.</h1>
+    <h1 class="hero-title"><span class="hero-title-line">Peças autorais</span> <span class="hero-title-line">em <span class="script">rochas naturais</span></span> <span class="hero-title-line">para ambientes que</span> <span class="hero-title-line">contam histórias.</span></h1>
     <p class="lead">Da mesa ao lavabo, do quarto infantil ao presente personalizado, a Pedra Nobre Concept cria peças exclusivas que unem arte, design contemporâneo e acabamento artesanal.</p>
     <div class="cta-row">
       <a href="https://wa.me/5537999858552?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Pedra%20Nobre%20Concept%20e%20gostaria%20de%20criar%20uma%20pe%C3%A7a%20personalizada%20em%20rocha%20natural." class="btn btn-gold" target="_blank" rel="noopener" data-gtm="whatsapp_hero">Falar com a Concept</a>
@@ -985,12 +990,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
   <div class="wrap foot-grid">
     <div>
       <div class="foot-logo">
-        <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="8,80 32,15 56,80" fill="#D1C08A"/>
-          <polygon points="44,80 68,15 92,80" fill="#D1C08A"/>
-          <polygon points="38,80 50,45 62,80" fill="#FAF8F3"/>
-        </svg>
-        <b>PEDRA NOBRE CONCEPT</b>
+        <img src="assets/logo/logo-stacked-white.webp" alt="Pedra Nobre Concept" class="foot-logo-img">
       </div>
       <p style="max-width:320px;">Design autoral em rochas naturais para ambientes, presentes e ocasiões especiais. Formiga/MG.</p>
     </div>
@@ -1019,8 +1019,8 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
 </footer>
 
 <a href="https://wa.me/5537999858552?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Pedra%20Nobre%20Concept%20e%20gostaria%20de%20criar%20uma%20pe%C3%A7a%20personalizada%20em%20rocha%20natural." class="wa-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" data-gtm="whatsapp_float">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2.05 22l5.27-1.38a9.86 9.86 0 0 0 4.72 1.2h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.14h-.01a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.55 3.71-8.25 8.27-8.25a8.24 8.24 0 0 1 8.25 8.25c0 4.55-3.71 8.23-8.26 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2.01-1.24-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.76-1.85-.2-.48-.4-.41-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.75 2.67 4.24 3.74.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.14-1.18-.06-.1-.22-.16-.47-.29z"/>
   </svg>
 </a>
 
