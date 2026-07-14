@@ -68,10 +68,10 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type": "Question","name": "A Pedra Nobre Concept faz peças personalizadas?","acceptedAnswer": {"@type": "Answer","text": "Sim. A Concept desenvolve peças sob medida, considerando estilo, ambiente, uso, referências e preferências do cliente."}},
-    {"@type": "Question","name": "Quais tipos de peças a Concept produz?","acceptedAnswer": {"@type": "Answer","text": "A marca produz adornos decorativos, peças para lavabos e banheiros, tableware e cozinha, mobiliários, Baby & Kids e peças para maternidade."}},
+    {"@type": "Question","name": "Quais tipos de peças a Concept produz?","acceptedAnswer": {"@type": "Answer","text": "A marca produz adornos decorativos, peças para conjuntos decorativos, tableware e cozinha, mobiliários, Baby & Kids e peças para maternidade."}},
     {"@type": "Question","name": "As peças são todas iguais?","acceptedAnswer": {"@type": "Answer","text": "Não. Como são feitas em rochas naturais, cada peça possui veios, tonalidades e texturas próprias."}},
     {"@type": "Question","name": "A Concept atende arquitetos e designers?","acceptedAnswer": {"@type": "Answer","text": "Sim. A equipe pode alinhar detalhes com arquitetos, designers de interiores e decoradores para que a peça converse com o projeto."}},
-    {"@type": "Question","name": "A Concept faz peças para maternidade?","acceptedAnswer": {"@type": "Answer","text": "Sim. A marca desenvolve bandejas e caixas personalizadas para preparar o quarto de maternidade para a chegada do bebê."}},
+    {"@type": "Question","name": "A Concept faz peças para maternidade?","acceptedAnswer": {"@type": "Answer","text": "Sim. A marca desenvolve caixas, bandejas e kits personalizados para a maternidade e para a chegada do bebê."}},
     {"@type": "Question","name": "Onde fica a Pedra Nobre Concept?","acceptedAnswer": {"@type": "Answer","text": "A Pedra Nobre Concept fica na Avenida Brasil, 337, Vila Nirmatelle, em Formiga/MG."}},
     {"@type": "Question","name": "Como solicitar uma peça personalizada?","acceptedAnswer": {"@type": "Answer","text": "O cliente pode entrar em contato pelo WhatsApp ou preencher o formulário da página contando o tipo de peça, ambiente, ocasião e referências desejadas."}}
   ]
@@ -113,7 +113,7 @@ body{
    content force a track wider than its share and overflow the whole page on
    narrow screens. This resets that trap everywhere at once. */
 .linhas-grid > *, .dif-grid > *, .mini-cards > *, .materia-blocks > *,
-.processo-list > *, .grupo-grid > *, .hero-stats > *, .form-row > *,
+.processo-list > *, .solucoes-grid > *, .hero-stats > *, .form-row > *,
 .foot-grid > *, .materia-imgs > *{ min-width:0; }
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
@@ -237,7 +237,7 @@ header.scrolled{box-shadow:0 6px 24px rgba(61,61,61,.08);background:rgba(250,248
 .materia-block .dot{width:8px;height:8px;background:var(--gold);border-radius:50%;margin-top:9px;flex-shrink:0;}
 .materia-block h4{font-size:15.5px;font-weight:700;margin-bottom:4px;}
 .materia-block p{font-size:14.5px;color:var(--ink-soft);}
-.materia-imgs{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.materia-imgs{display:grid;grid-template-columns:1fr 1fr;grid-auto-flow:dense;gap:16px;}
 .materia-imgs img{border-radius:2px;height:100%;object-fit:cover;}
 .materia-imgs .tall{grid-row:span 2;aspect-ratio:2/3;}
 .materia-imgs .short{aspect-ratio:1/1;}
@@ -288,7 +288,7 @@ header.scrolled{box-shadow:0 6px 24px rgba(61,61,61,.08);background:rgba(250,248
   padding:9px 18px;font-size:12.5px;letter-spacing:.04em;border-radius:20px;transition:.3s;
 }
 .filter-btn.active,.filter-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);}
-.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:140px;gap:10px;}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:140px;grid-auto-flow:dense;gap:10px;}
 .mosaic figure{overflow:hidden;position:relative;cursor:pointer;border-radius:2px;background:#222;}
 .mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease), opacity .4s;}
 .mosaic figure:hover img{transform:scale(1.08);}
@@ -422,20 +422,20 @@ footer{background:var(--ink);color:rgba(250,248,243,.75);padding:64px 0 30px;}
 /* Number count-up target */
 [data-count]{font-variant-numeric:tabular-nums;}
 
-/* Grupo Pedra Nobre — cross-LP links */
-.grupo-section{background:var(--off-2);}
-.grupo-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px;}
-.grupo-card{
+/* Outras soluções Pedra Nobre — cross-LP links */
+.solucoes-section{background:var(--off-2);}
+.solucoes-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px;}
+.solucoes-card{
   background:var(--white);border:1px solid var(--line);padding:34px 30px;
   display:flex;flex-direction:column;gap:14px;transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
 }
-.grupo-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(61,61,61,.1);border-color:var(--gold);}
-.grupo-card .grupo-tag{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;}
-.grupo-card h3{font-size:19px;}
-.grupo-card p{font-size:14px;color:var(--ink-soft);}
-.grupo-card .grupo-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.03em;color:var(--ink);margin-top:auto;padding-top:6px;}
-.grupo-card .grupo-link .arrow{transition:transform .3s var(--ease);}
-.grupo-card:hover .grupo-link .arrow{transform:translateX(5px);}
+.solucoes-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(61,61,61,.1);border-color:var(--gold);}
+.solucoes-card .solucoes-tag{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;}
+.solucoes-card h3{font-size:19px;}
+.solucoes-card p{font-size:14px;color:var(--ink-soft);}
+.solucoes-card .solucoes-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.03em;color:var(--ink);margin-top:auto;padding-top:6px;}
+.solucoes-card .solucoes-link .arrow{transition:transform .3s var(--ease);}
+.solucoes-card:hover .solucoes-link .arrow{transform:translateX(5px);}
 
 /* Anchor scroll offset — prevents fixed header from covering section titles on nav click */
 section[id], #topo{scroll-margin-top:var(--header-h);}
@@ -450,8 +450,8 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
 /* Tablet (portrait iPad ~768-1024) */
 @media(max-width:1024px){
   :root{--header-h:74px;}
-  .split,.materia-grid,.personaliza-grid,.baby-grid,.arq-grid,.orc-grid,.grupo-grid{grid-template-columns:1fr;gap:34px;}
-  .materia-imgs .tall{aspect-ratio:16/9;}
+  .split,.materia-grid,.personaliza-grid,.baby-grid,.arq-grid,.orc-grid,.solucoes-grid{grid-template-columns:1fr;gap:34px;}
+  .materia-imgs .tall{aspect-ratio:16/9;grid-row:span 1;}
   .linhas-grid{grid-template-columns:repeat(2,1fr);}
   .dif-grid{grid-template-columns:1fr 1fr;}
   .foot-grid{grid-template-columns:1fr 1fr;}
@@ -503,7 +503,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
   .orc-info .btn{width:100%;}
   form{padding:24px 18px;}
   .cta-final{padding:80px 0;}
-  .grupo-grid{grid-template-columns:1fr;}
+  .solucoes-grid{grid-template-columns:1fr;}
   h2{font-size:clamp(26px,7vw,34px);}
   .split-text .script-line{font-size:22px;}
   .reveal-left{transform:translateX(-20px);}
@@ -561,7 +561,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
 <header>
   <div class="wrap nav">
     <a href="#topo" class="logo-mark" aria-label="Pedra Nobre Concept">
-      <img src="assets/logo/logo-horizontal-dark.webp" alt="Pedra Nobre Concept" class="logo-img">
+      <img src="assets/logo/logo-horizontal-dark-fixed.webp" alt="Pedra Nobre Concept" class="logo-img">
     </a>
     <nav class="nav-links">
       <a href="#origem">Sobre</a>
@@ -578,7 +578,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
         </svg>
         <span>Falar no WhatsApp</span>
       </a>
-      <button class="burger" id="burgerBtn" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+      <button class="burger" id="burgerBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -601,7 +601,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
 <!-- ===== HERO ===== -->
 <section class="hero" id="topo">
   <div class="hero-bg">
-    <img src="assets/hero/hero-lavabo-concept.webp" alt="Lavabo com peça em mármore assinada pela Pedra Nobre Concept" fetchpriority="high">
+    <img src="assets/hero/hero-lavabo-concept.webp" alt="Ambiente contemporâneo com mesa autoral em rocha natural da Pedra Nobre Concept" fetchpriority="high">
   </div>
   <div class="wrap hero-inner">
     <span class="hero-badge">Design autoral · Formiga/MG · desde 2020</span>
@@ -646,28 +646,28 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
     </div>
     <div class="linhas-grid">
       <div class="linha-card reveal">
-        <div class="img-wrap"><span class="linha-num">01</span><img src="assets/secoes/linha-adornos.webp" alt="Adorno decorativo em rocha natural da Pedra Nobre Concept" loading="lazy"></div>
+        <div class="img-wrap"><span class="linha-num">01</span><img src="assets/galeria/lavabo-01.webp" alt="Arandela autoral em rocha natural com iluminação embutida" loading="lazy"></div>
         <div class="linha-body"><h3>Adornos decorativos</h3><p>Bandejas, vasos solitários, cachepôs, porta-velas, suportes para livros e Cúpula de Fé.</p></div>
       </div>
       <div class="linha-card reveal">
-        <div class="img-wrap"><span class="linha-num">02</span><img src="assets/secoes/linha-lavabos.webp" alt="Peça decorativa em mármore para lavabo da Pedra Nobre Concept" loading="lazy"></div>
-        <div class="linha-body"><h3>Lavabos e banheiros</h3><p>Bandejas, saboneteiras, difusores, porta-joias, lixeiras, toalheiros e acessórios.</p></div>
+        <div class="img-wrap"><span class="linha-num">02</span><img src="assets/galeria/cozinha-08.webp" alt="Conjunto de bandeja, difusor e acessórios em rocha natural para lavabo" loading="lazy"></div>
+        <div class="linha-body"><h3>Conjuntos decorativos</h3><p>Bandejas, saboneteiras, difusores, porta-joias, lixeiras, toalheiros e acessórios.</p></div>
       </div>
       <div class="linha-card reveal">
-        <div class="img-wrap"><span class="linha-num">03</span><img src="assets/secoes/linha-tableware.webp" alt="Tableware em rocha natural para mesa posta da Pedra Nobre Concept" loading="lazy"></div>
+        <div class="img-wrap"><span class="linha-num">03</span><img src="assets/galeria/baby-maternidade-05.webp" alt="Prato giratório em rocha natural para servir e compor a mesa" loading="lazy"></div>
         <div class="linha-body"><h3>Tableware e cozinha</h3><p>Boleiras, pratos giratórios, sousplats, queijeiras, fruteiras e porta-detergentes.</p></div>
       </div>
       <div class="linha-card reveal">
-        <div class="img-wrap"><span class="linha-num">04</span><img src="assets/secoes/linha-mobiliario.webp" alt="Peça de mobiliário autoral em rocha natural da Pedra Nobre Concept" loading="lazy"></div>
+        <div class="img-wrap"><span class="linha-num">04</span><img src="assets/galeria/mobiliario-07.webp" alt="Mesa lateral autoral em rocha natural" loading="lazy"></div>
         <div class="linha-body"><h3>Mobiliário</h3><p>Mesas de apoio, mesas de jantar, aparadores, lareiras móveis e puxadores.</p></div>
       </div>
       <div class="linha-card reveal">
-        <div class="img-wrap"><span class="linha-num">05</span><img src="assets/secoes/linha-babykids.webp" alt="Peça Baby & Kids personalizada em mármore da Pedra Nobre Concept" loading="lazy"></div>
+        <div class="img-wrap"><span class="linha-num">05</span><img src="assets/galeria/adornos-04.webp" alt="Bandejas lúdicas em formas autorais para a linha Baby &amp; Kids" loading="lazy"></div>
         <div class="linha-body"><h3>Baby &amp; Kids</h3><p>Bandejas temáticas autorais, molheiras e porta-algodão para quartos infantis.</p></div>
       </div>
       <div class="linha-card reveal">
-        <div class="img-wrap"><span class="linha-num">06</span><img src="assets/secoes/linha-maternidade.webp" alt="Peça personalizada para maternidade em rocha natural da Pedra Nobre Concept" loading="lazy"></div>
-        <div class="linha-body"><h3>Maternidade</h3><p>Bandejas e caixas personalizadas para preparar o quarto de maternidade.</p></div>
+        <div class="img-wrap"><span class="linha-num">06</span><img src="assets/galeria/cozinha-03.webp" alt="Caixa personalizada em rocha natural com toalhas para maternidade" loading="lazy"></div>
+        <div class="linha-body"><h3>Maternidade</h3><p>Caixas, bandejas e kits personalizados para a maternidade e a chegada do bebê.</p></div>
       </div>
     </div>
     <div class="cta-row" style="justify-content:center;margin-top:44px;">
@@ -692,7 +692,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
     </div>
     <div class="materia-imgs reveal">
       <img class="tall" src="assets/destaques/materia-prima-veios.webp" alt="Detalhe dos veios naturais em peça de mármore da Pedra Nobre Concept" loading="lazy">
-      <img class="short" src="assets/galeria/mesa-posta-02.webp" alt="Textura de rocha natural em peça para mesa posta" loading="lazy">
+      <img class="short" src="assets/galeria/mesa-posta-10.webp" alt="Detalhe dos veios e do acabamento de um tampo em rocha natural" loading="lazy">
       <img class="short" src="assets/destaques/acabamento-detalhe.webp" alt="Detalhe de acabamento artesanal em peça de rocha natural" loading="lazy">
     </div>
   </div>
@@ -744,8 +744,8 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
   <div class="wrap baby-grid">
     <div class="reveal">
       <span class="eyebrow">Baby &amp; Kids</span>
-      <h2>Detalhes autorais para os primeiros capítulos de uma história.</h2>
-      <p class="lead" style="margin-top:18px;">A linha Baby &amp; Kids cria peças em rochas naturais para quartos infantis, maternidade e composições afetivas. Cada item é pensado para unir funcionalidade, delicadeza e identidade visual do ambiente.</p>
+      <h2>Peças lúdicas e personalizadas para quartos infantis.</h2>
+      <p class="lead" style="margin-top:18px;">A linha Baby &amp; Kids reúne bandejas, caixas, molheiras e porta-algodão com formas autorais. Cores, dimensões e detalhes são personalizados para conversar com o quarto e com a identidade escolhida para o projeto.</p>
       <div class="baby-list">
         <span class="baby-tag">Bandejas temáticas autorais</span>
         <span class="baby-tag">Molheiras</span>
@@ -758,7 +758,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
       </div>
     </div>
     <div class="reveal">
-      <img src="assets/destaques/babykids-destaque.webp" alt="Peça Baby & Kids personalizada em mármore para quarto infantil da Pedra Nobre Concept" loading="lazy" style="border-radius:2px;">
+      <img src="assets/galeria/mobiliario-05.webp" alt="Coleção Baby &amp; Kids com bandejas e caixas em formas lúdicas" loading="lazy" style="border-radius:2px;">
     </div>
   </div>
 </section>
@@ -782,7 +782,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
       </div>
     </div>
     <div class="reveal">
-      <img src="assets/galeria/mobiliario-04.webp" alt="Peça de mobiliário autoral em rocha natural integrada ao projeto de interiores" loading="lazy" style="border-radius:2px;">
+      <img src="assets/galeria/mesa-posta-07.webp" alt="Escada e acabamentos em rocha natural integrados ao projeto de interiores" loading="lazy" style="border-radius:2px;">
     </div>
   </div>
 </section>
@@ -816,8 +816,8 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
       <div class="filters" id="filters">
         <button class="filter-btn active" data-filter="all">Todas</button>
         <button class="filter-btn" data-filter="adornos">Adornos</button>
-        <button class="filter-btn" data-filter="lavabos">Lavabos</button>
-        <button class="filter-btn" data-filter="mesa">Mesa posta</button>
+        <button class="filter-btn" data-filter="lavabos">Conjuntos</button>
+        <button class="filter-btn" data-filter="mesa">Mesa &amp; cozinha</button>
         <button class="filter-btn" data-filter="mobiliario">Mobiliário</button>
         <button class="filter-btn" data-filter="babykids">Baby &amp; Kids</button>
         <button class="filter-btn" data-filter="maternidade">Maternidade</button>
@@ -827,12 +827,13 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
   </div>
 </section>
 
-<div class="lightbox" id="lightbox">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Visualização ampliada da galeria">
   <button class="lightbox-close" id="lbClose" aria-label="Fechar">&times;</button>
   <button class="lightbox-nav lightbox-prev" id="lbPrev" aria-label="Anterior">&#8249;</button>
   <img id="lbImg" src="" alt="">
   <button class="lightbox-nav lightbox-next" id="lbNext" aria-label="Próxima">&#8250;</button>
-  <div class="lightbox-counter" id="lbCounter">01 / 21</div>
+  <div class="lightbox-counter" id="lbCounter">01 / 16</div>
+  <div class="lightbox-caption" id="lbCaption"></div>
 </div>
 
 <!-- ===== PROVAS SOCIAIS ===== -->
@@ -853,17 +854,16 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
     <div class="orc-info reveal">
       <span class="eyebrow">Contato</span>
       <h2>Conte para nós qual detalhe você quer criar.</h2>
-      <p class="lead" style="margin-top:18px;">Preencha os dados abaixo ou fale direto pelo WhatsApp para contar sua ideia. A equipe da Pedra Nobre Concept vai entender o ambiente, a ocasião e o estilo desejado para orientar a criação da peça.</p>
-      <a href="https://wa.me/5537999858552?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Pedra%20Nobre%20Concept%20e%20gostaria%20de%20criar%20uma%20pe%C3%A7a%20personalizada%20em%20rocha%20natural." class="btn btn-primary" target="_blank" rel="noopener" data-gtm="whatsapp_orcamento">WhatsApp direto — (37) 99985-8552</a>
+      <p class="lead" style="margin-top:18px;">Preencha os dados abaixo para contar sua ideia. A equipe da Pedra Nobre Concept vai entender o ambiente, a ocasião e o estilo desejado para orientar a criação da peça.</p>
       <p class="orc-note">Atendimento em Formiga/MG e região · Clientes, arquitetos, designers e decoradores.</p>
     </div>
     <form id="orcForm" class="reveal" novalidate>
       <div class="form-row">
-        <div class="field"><label for="nome">Nome *</label><input type="text" id="nome" name="nome" required></div>
-        <div class="field"><label for="whats">WhatsApp *</label><input type="tel" id="whats" name="whats" placeholder="(37) 90000-0000" required></div>
+        <div class="field"><label for="nome">Nome *</label><input type="text" id="nome" name="nome" autocomplete="name" required></div>
+        <div class="field"><label for="whats">WhatsApp *</label><input type="tel" id="whats" name="whats" placeholder="(37) 90000-0000" inputmode="tel" autocomplete="tel" required></div>
       </div>
       <div class="form-row">
-        <div class="field"><label for="cidade">Cidade *</label><input type="text" id="cidade" name="cidade" required></div>
+        <div class="field"><label for="cidade">Cidade *</label><input type="text" id="cidade" name="cidade" autocomplete="address-level2" required></div>
         <div class="field"><label for="tipoPessoa">Você é *</label>
           <select id="tipoPessoa" name="tipoPessoa" required>
             <option value="">Selecione</option>
@@ -881,7 +881,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
         <div class="chip-group" id="chipGroup" data-required="true">
           <button type="button" class="chip">Adorno decorativo</button>
           <button type="button" class="chip">Lavabo/banheiro</button>
-          <button type="button" class="chip">Mesa posta/cozinha</button>
+          <button type="button" class="chip">Mesa &amp; cozinha</button>
           <button type="button" class="chip">Mobiliário</button>
           <button type="button" class="chip">Baby &amp; Kids</button>
           <button type="button" class="chip">Maternidade</button>
@@ -919,7 +919,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
       </div>
       <div class="faq-item">
         <button class="faq-q">Quais tipos de peças a Concept produz?<span class="plus">+</span></button>
-        <div class="faq-a"><p>A marca produz adornos decorativos, peças para lavabos e banheiros, tableware e cozinha, mobiliários, Baby &amp; Kids e peças para maternidade.</p></div>
+        <div class="faq-a"><p>A marca produz adornos decorativos, peças e conjuntos decorativos, tableware e cozinha, mobiliários, Baby &amp; Kids e peças para maternidade.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">As peças são todas iguais?<span class="plus">+</span></button>
@@ -931,7 +931,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
       </div>
       <div class="faq-item">
         <button class="faq-q">A Concept faz peças para maternidade?<span class="plus">+</span></button>
-        <div class="faq-a"><p>Sim. A marca desenvolve bandejas e caixas personalizadas para preparar o quarto de maternidade para a chegada do bebê.</p></div>
+        <div class="faq-a"><p>Sim. A marca desenvolve caixas, bandejas e kits personalizados para a maternidade e para a chegada do bebê.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Onde fica a Pedra Nobre Concept?<span class="plus">+</span></button>
@@ -945,27 +945,26 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
   </div>
 </section>
 
-<!-- ===== GRUPO PEDRA NOBRE (cross-LP) ===== -->
-<section class="section tight grupo-section" id="grupo">
+<!-- ===== OUTRAS SOLUÇÕES PEDRA NOBRE (cross-LP) ===== -->
+<section class="section tight solucoes-section" id="solucoes-pedra-nobre">
   <div class="wrap">
     <div class="linhas-head reveal" style="margin-bottom:36px;">
-      <span class="eyebrow center" style="justify-content:center;">Grupo Pedra Nobre</span>
-      <h2>A Concept é uma das frentes do <span class="script">Grupo Pedra Nobre.</span></h2>
-      <p class="lead center" style="margin-top:16px;">Conheça as outras marcas do grupo em rochas naturais: execução de obra e acabamento, e revestimentos de alto padrão.</p>
+      <span class="eyebrow center" style="justify-content:center;">Pedra Nobre</span>
+      <h2>Outras soluções em rochas naturais para o seu <span class="script">projeto.</span></h2>
+      <p class="lead center" style="margin-top:16px;">Além das peças autorais da Concept, conheça os serviços de marmoraria e a seleção de revestimentos naturais da Pedra Nobre.</p>
     </div>
-    <div class="grupo-grid">
-      <a href="https://lp-pedra-nobre.vercel.app/" target="_blank" rel="noopener" class="grupo-card reveal-left reveal" data-gtm="grupo_marmoraria">
-        <span class="grupo-tag">Pedra Nobre · Marmoraria</span>
+    <div class="solucoes-grid">
+      <a href="https://lp-pedra-nobre.vercel.app/" target="_blank" rel="noopener" class="solucoes-card reveal-left reveal" data-gtm="pedra_nobre_marmoraria">
+        <span class="solucoes-tag">Pedra Nobre · Marmoraria</span>
         <h3>Da obra ao acabamento</h3>
-        <p>Execução completa em mármore, granito e rochas naturais para residências e empreendimentos — cozinhas, fachadas, piscinas e mais.</p>
-        <span class="grupo-link">Visitar site da Marmoraria <span class="arrow">&rarr;</span></span>
+        <p>Execução em mármore, granito e outras rochas naturais para cozinhas, fachadas, piscinas e diferentes ambientes.</p>
+        <span class="solucoes-link">Visitar site da Marmoraria <span class="arrow">&rarr;</span></span>
       </a>
-      <!-- TODO Malta: confirmar URL final da LP de Revestimentos publicada para substituir o link abaixo -->
-      <a href="#" target="_blank" rel="noopener" class="grupo-card reveal-right reveal" data-gtm="grupo_revestimentos">
-        <span class="grupo-tag">Pedra Nobre · Revestimentos</span>
+      <a href="https://lp-pedra-nobre-revestimentos.vercel.app/" target="_blank" rel="noopener" class="solucoes-card reveal-right reveal" data-gtm="pedra_nobre_revestimentos">
+        <span class="solucoes-tag">Pedra Nobre · Revestimentos</span>
         <h3>Rochas naturais para revestir</h3>
-        <p>Placas, ladrilhos e revestimentos em rochas naturais selecionadas para projetos residenciais e comerciais de alto padrão.</p>
-        <span class="grupo-link">Visitar site de Revestimentos <span class="arrow">&rarr;</span></span>
+        <p>Revestimentos naturais selecionados para paredes, halls, lavabos, fachadas e áreas internas ou externas.</p>
+        <span class="solucoes-link">Conhecer Revestimentos <span class="arrow">&rarr;</span></span>
       </a>
     </div>
   </div>
@@ -973,7 +972,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
 
 <!-- ===== CTA FINAL ===== -->
 <section class="cta-final">
-  <div class="cta-final-bg"><img src="assets/destaques/cta-final.webp" alt="Peça em mármore assinada Pedra Nobre Concept" loading="lazy"></div>
+  <div class="cta-final-bg"><img src="assets/galeria/mesa-posta-09.webp" alt="Ambiente contemporâneo com mesa em rocha natural" loading="lazy"></div>
   <div class="wrap content reveal">
     <span class="eyebrow center" style="justify-content:center;color:var(--gold);">Fale com a Pedra Nobre Concept</span>
     <h2>Crie uma peça única para um ambiente que merece significado.</h2>
@@ -1033,12 +1032,26 @@ const mobileMenu = document.getElementById('mobileMenu');
 burger.addEventListener('click', ()=>{
   const willOpen = !mobileMenu.classList.contains('open');
   mobileMenu.classList.toggle('open', willOpen);
+  burger.setAttribute('aria-expanded', String(willOpen));
+  burger.setAttribute('aria-label', willOpen ? 'Fechar menu' : 'Abrir menu');
   document.body.style.overflow = willOpen ? 'hidden' : '';
 });
 mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
   mobileMenu.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+  burger.setAttribute('aria-label', 'Abrir menu');
   document.body.style.overflow = '';
 }));
+
+document.addEventListener('keydown', (e)=>{
+  if(e.key==='Escape' && mobileMenu.classList.contains('open')){
+    mobileMenu.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Abrir menu');
+    document.body.style.overflow = '';
+    burger.focus();
+  }
+});
 
 /* ---------- Auto-tag two-column sections for left/right reveal + signature image frame ---------- */
 document.querySelectorAll('.split, .materia-grid, .personaliza-grid, .baby-grid, .arq-grid').forEach(grid=>{
@@ -1063,7 +1076,7 @@ document.querySelectorAll('.materia-imgs img').forEach((img,i)=>{
    img-frame curtain pseudo-element. */
 
 /* ---------- Auto-stagger grid children ---------- */
-document.querySelectorAll('.linhas-grid, .dif-grid, .materia-blocks, .processo-list, .mini-cards, .grupo-grid').forEach(group=>{
+document.querySelectorAll('.linhas-grid, .dif-grid, .materia-blocks, .processo-list, .mini-cards, .solucoes-grid').forEach(group=>{
   Array.from(group.children).forEach((child, i)=>{
     child.classList.add('reveal');
     child.style.transitionDelay = Math.min(i*90,360)+'ms';
@@ -1125,13 +1138,21 @@ window.addEventListener('scroll', updateProgress, {passive:true});
 window.addEventListener('resize', updateProgress);
 
 /* ---------- FAQ accordion ---------- */
-document.querySelectorAll('.faq-item').forEach(item=>{
+document.querySelectorAll('.faq-item').forEach((item, index)=>{
   const q = item.querySelector('.faq-q');
   const a = item.querySelector('.faq-a');
+  const answerId = 'faq-answer-' + index;
+  a.id = answerId;
+  q.setAttribute('aria-controls', answerId);
+  q.setAttribute('aria-expanded', 'false');
   q.addEventListener('click', ()=>{
     const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight=null;});
-    if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight+'px'; }
+    document.querySelectorAll('.faq-item').forEach(i=>{
+      i.classList.remove('open');
+      i.querySelector('.faq-a').style.maxHeight=null;
+      i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+    });
+    if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight+'px'; q.setAttribute('aria-expanded','true'); }
   });
 });
 
@@ -1167,7 +1188,10 @@ requiredFieldIds.forEach(id=>{
 });
 validateForm(); // set initial disabled state
 
-/* ---------- Form submit -> WhatsApp ---------- */
+/* ---------- Form submit -> Planilha (Google Sheets) + WhatsApp ---------- */
+/* Cole aqui a URL do seu Web App do Google Apps Script (veja o passo a passo enviado no chat) */
+const GOOGLE_SHEETS_WEBHOOK_URL = 'COLE_AQUI_A_URL_DO_APPS_SCRIPT';
+
 orcForm.addEventListener('submit', function(e){
   e.preventDefault();
   if(!validateForm()){
@@ -1189,58 +1213,57 @@ orcForm.addEventListener('submit', function(e){
 
   if(window.dataLayer){ window.dataLayer.push({event:'form_submit_orcamento', form_tipo_peca: tipos, form_pessoa: tipoPessoa}); }
 
-  let msg = `Olá, vim pelo site da Pedra Nobre Concept.\nNome: ${nome}\nCidade: ${cidade}\nSou: ${tipoPessoa}\nTipo de peça: ${tipos}\nAmbiente/ocasião: ${ambiente}\nJá tem referência: ${referencia}\nMensagem: ${mensagem || 'não informado'}`;
-  window.open('https://wa.me/5537999858552?text=' + encodeURIComponent(msg), '_blank');
+  const payload = {
+    data: new Date().toISOString(),
+    nome, whats, cidade,
+    tipoPessoa, tipoPeca: tipos,
+    ambiente, referencia,
+    mensagem: mensagem || 'não informado',
+    pagina: 'Pedra Nobre Concept'
+  };
+
+  // Envia para a planilha (Google Sheets via Apps Script). mode:'no-cors' evita bloqueio de CORS,
+  // mas também impede ler a resposta — por isso o redirecionamento abaixo não espera confirmação.
+  if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Enviando...'; }
+  if(GOOGLE_SHEETS_WEBHOOK_URL && GOOGLE_SHEETS_WEBHOOK_URL.indexOf('COLE_AQUI') === -1){
+    fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {'Content-Type':'text/plain;charset=utf-8'},
+      body: JSON.stringify(payload)
+    }).catch(()=>{ /* mesmo se falhar o envio à planilha, o cliente ainda vai pro WhatsApp */ });
+  }
+
+  const waMsg = 'Olá, acabei de preencher o formulário e gostaria de ajuda com meu orçamento.';
+  window.open('https://wa.me/5537999858552?text=' + encodeURIComponent(waMsg), '_blank');
+  if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = 'Enviar minha ideia'; }
+  orcForm.reset();
+  document.querySelectorAll('#chipGroup .chip.selected').forEach(c=>c.classList.remove('selected'));
 });
 
 /* ---------- Gallery data ---------- */
 const galeriaItems = [
-  {src:'assets/galeria/adornos-01.webp', cat:'adornos', label:'Adornos', alt:'Adorno decorativo em rocha natural da Pedra Nobre Concept'},
-  {src:'assets/galeria/adornos-02.webp', cat:'adornos', label:'Adornos', alt:'Adorno decorativo em rocha natural da Pedra Nobre Concept'},
-  {src:'assets/galeria/adornos-03.webp', cat:'adornos', label:'Adornos', alt:'Peça decorativa autoral em mármore'},
-  {src:'assets/galeria/adornos-04.webp', cat:'adornos', label:'Adornos', alt:'Peça decorativa autoral em mármore'},
-  {src:'assets/galeria/lavabo-01.webp', cat:'adornos', label:'Adornos', alt:'Luminária de parede autoral em travertino da Pedra Nobre Concept'},
-  {src:'assets/galeria/lavabo-02.webp', cat:'adornos', label:'Adornos', alt:'Detalhe de luminária de parede em rocha natural'},
-  {src:'assets/galeria/lavabo-03.webp', cat:'adornos', label:'Adornos', alt:'Arandela esculpida em pedra natural com iluminação embutida'},
-  {src:'assets/galeria/lavabo-04.webp', cat:'lavabos', label:'Lavabos', alt:'Peça em mármore para banheiro de alto padrão'},
-  {src:'assets/galeria/lavabo-05.webp', cat:'lavabos', label:'Lavabos', alt:'Cuba esculpida em mármore para lavabo'},
-  {src:'assets/galeria/lavabo-06.webp', cat:'lavabos', label:'Lavabos', alt:'Cuba esculpida em mármore para lavabo'},
-  {src:'assets/galeria/lavabo-07.webp', cat:'lavabos', label:'Lavabos', alt:'Bancada em mármore para lavabo social'},
-  {src:'assets/galeria/lavabo-08.webp', cat:'lavabos', label:'Lavabos', alt:'Bancada em mármore para lavabo social'},
-  {src:'assets/galeria/mesa-posta-01.webp', cat:'mesa', label:'Mesa posta', alt:'Tableware em rocha natural para mesa posta'},
-  {src:'assets/galeria/mesa-posta-02.webp', cat:'mesa', label:'Mesa posta', alt:'Detalhe de textura em peça para mesa posta'},
-  {src:'assets/galeria/mesa-posta-03.webp', cat:'mesa', label:'Mesa posta', alt:'Mesa posta com peças autorais em mármore'},
-  {src:'assets/galeria/mesa-posta-04.webp', cat:'mesa', label:'Mesa posta', alt:'Bandeja em mármore sobre mesa posta'},
-  {src:'assets/galeria/mesa-posta-05.webp', cat:'mesa', label:'Mesa posta', alt:'Bandeja em mármore sobre mesa posta'},
-  {src:'assets/galeria/mesa-posta-06.webp', cat:'mesa', label:'Mesa posta', alt:'Composição de mesa posta em rocha natural'},
-  {src:'assets/galeria/mesa-posta-07.webp', cat:'mesa', label:'Mesa posta', alt:'Mesa posta ao ar livre com peças em mármore'},
-  {src:'assets/galeria/mesa-posta-08.webp', cat:'mesa', label:'Mesa posta', alt:'Mesa posta ao ar livre com peças em mármore'},
-  {src:'assets/galeria/mesa-posta-09.webp', cat:'mesa', label:'Mesa posta', alt:'Detalhe de peça para mesa posta em rocha natural'},
-  {src:'assets/galeria/mesa-posta-10.webp', cat:'mesa', label:'Mesa posta', alt:'Peça para servir à mesa em rocha natural'},
-  {src:'assets/galeria/cozinha-01.webp', cat:'mesa', label:'Mesa posta', alt:'Bancada e peças em mármore na cozinha'},
-  {src:'assets/galeria/cozinha-02.webp', cat:'mesa', label:'Mesa posta', alt:'Peças autorais em ambiente de cozinha'},
-  {src:'assets/galeria/cozinha-03.webp', cat:'mesa', label:'Mesa posta', alt:'Ilha de cozinha em rocha natural'},
-  {src:'assets/galeria/cozinha-04.webp', cat:'mesa', label:'Mesa posta', alt:'Detalhe de acabamento em cozinha de alto padrão'},
-  {src:'assets/galeria/cozinha-05.webp', cat:'mesa', label:'Mesa posta', alt:'Bancada em rocha natural na cozinha'},
-  {src:'assets/galeria/cozinha-06.webp', cat:'mesa', label:'Mesa posta', alt:'Detalhe de cuba e bancada em rocha natural'},
-  {src:'assets/galeria/cozinha-07.webp', cat:'mesa', label:'Mesa posta', alt:'Cozinha com acabamento em rocha natural'},
-  {src:'assets/galeria/cozinha-08.webp', cat:'mesa', label:'Mesa posta', alt:'Detalhe de bancada em rocha natural'},
-  {src:'assets/galeria/mobiliario-01.webp', cat:'mobiliario', label:'Mobiliário', alt:'Peça de mobiliário autoral em rocha natural'},
-  {src:'assets/galeria/mobiliario-02.webp', cat:'mobiliario', label:'Mobiliário', alt:'Mesa de apoio em mármore'},
-  {src:'assets/galeria/mobiliario-03.webp', cat:'mobiliario', label:'Mobiliário', alt:'Mesa de apoio redonda em rocha natural'},
-  {src:'assets/galeria/mobiliario-04.webp', cat:'mobiliario', label:'Mobiliário', alt:'Mesa de apoio composta com o ambiente'},
-  {src:'assets/galeria/mobiliario-05.webp', cat:'mobiliario', label:'Mobiliário', alt:'Peça de mobiliário para quarto'},
-  {src:'assets/galeria/mobiliario-06.webp', cat:'mobiliario', label:'Mobiliário', alt:'Mesa de cabeceira em rocha natural'},
-  {src:'assets/galeria/mobiliario-07.webp', cat:'mobiliario', label:'Mobiliário', alt:'Mesa de apoio em mármore com decoração'},
-  {src:'assets/galeria/mobiliario-08.webp', cat:'mobiliario', label:'Mobiliário', alt:'Detalhe de mesa de apoio em rocha natural'},
-  {src:'assets/galeria/baby-maternidade-01.webp', cat:'babykids', label:'Baby & Kids', alt:'Peça Baby & Kids personalizada em mármore'},
-  {src:'assets/galeria/baby-maternidade-02.webp', cat:'babykids', label:'Baby & Kids', alt:'Bandeja temática autoral para quarto infantil'},
-  {src:'assets/galeria/baby-maternidade-03.webp', cat:'babykids', label:'Baby & Kids', alt:'Peça em mármore para quarto de bebê'},
-  {src:'assets/galeria/baby-maternidade-04.webp', cat:'babykids', label:'Baby & Kids', alt:'Detalhe de peça Baby & Kids em rocha natural'},
-  {src:'assets/galeria/baby-maternidade-05.webp', cat:'maternidade', label:'Maternidade', alt:'Peça personalizada para maternidade em rocha natural'},
-  {src:'assets/galeria/baby-maternidade-06.webp', cat:'maternidade', label:'Maternidade', alt:'Bandeja personalizada para chegada do bebê'},
-  {src:'assets/galeria/baby-maternidade-07.webp', cat:'maternidade', label:'Maternidade', alt:'Caixa personalizada para maternidade em mármore'},
-  {src:'assets/galeria/baby-maternidade-08.webp', cat:'maternidade', label:'Maternidade', alt:'Peça em rocha natural para preparar a chegada do bebê'}
+  {src:'assets/galeria/baby-maternidade-01.webp', cat:'adornos', label:'Adornos', alt:'Lareira móvel em travertino com chama embutida'},
+  {src:'assets/galeria/baby-maternidade-03.webp', cat:'adornos', label:'Adornos', alt:'Vasos e cachepôs autorais em rocha natural'},
+  {src:'assets/galeria/lavabo-03.webp', cat:'adornos', label:'Adornos', alt:'Arandela esculpida em rocha natural com iluminação embutida'},
+
+  {src:'assets/galeria/cozinha-04.webp', cat:'lavabos', label:'Conjuntos', alt:'Porta-lenços em rocha natural para lavabo'},
+  {src:'assets/galeria/cozinha-07.webp', cat:'lavabos', label:'Conjuntos', alt:'Kit de bancada branco com difusor e acessórios para lavabo'},
+  {src:'assets/galeria/lavabo-07.webp', cat:'lavabos', label:'Conjuntos', alt:'Bandeja com difusor e acessórios em rocha natural'},
+  {src:'assets/galeria/mesa-posta-02.webp', cat:'lavabos', label:'Conjuntos', alt:'Lixeira autoral em rocha natural para banheiro'},
+  {src:'assets/galeria/mesa-posta-04.webp', cat:'lavabos', label:'Conjuntos', alt:'Bancada de lavabo composta com acessórios em rocha natural'},
+  {src:'assets/galeria/mesa-posta-05.webp', cat:'lavabos', label:'Conjuntos', alt:'Conjunto de bandeja, saboneteira e difusor em travertino'},
+  {src:'assets/galeria/mobiliario-02.webp', cat:'lavabos', label:'Conjuntos', alt:'Bancada iluminada com acessórios em rocha natural'},
+
+  {src:'assets/galeria/baby-maternidade-06.webp', cat:'mesa', label:'Mesa & cozinha', alt:'Prato giratório em rocha natural para servir à mesa'},
+
+  {src:'assets/galeria/lavabo-05.webp', cat:'mobiliario', label:'Mobiliário', alt:'Mesa de reunião autoral em rocha natural'},
+  {src:'assets/galeria/mesa-posta-08.webp', cat:'mobiliario', label:'Mobiliário', alt:'Mesa de jantar em rocha natural integrada ao ambiente'},
+  {src:'assets/galeria/mobiliario-01.webp', cat:'mobiliario', label:'Mobiliário', alt:'Mesa de jantar autoral com tampo em rocha natural'},
+
+  {src:'assets/galeria/adornos-03.webp', cat:'babykids', label:'Baby & Kids', alt:'Bandejas e caixas lúdicas em formas autorais para quarto infantil'},
+
+  {src:'assets/galeria/cozinha-01.webp', cat:'maternidade', label:'Maternidade', alt:'Caixa personalizada em rocha natural com toalhas para maternidade'}
 ];
 
 const mosaic = document.getElementById('mosaic');
@@ -1248,7 +1271,10 @@ galeriaItems.forEach((item, idx)=>{
   const fig = document.createElement('figure');
   fig.dataset.cat = item.cat;
   fig.dataset.idx = idx;
-  if(idx===0 || idx===12){ fig.classList.add('s2'); }
+  fig.tabIndex = 0;
+  fig.setAttribute('role', 'button');
+  fig.setAttribute('aria-label', 'Ampliar: ' + item.alt);
+  if(idx===0 || idx===10){ fig.classList.add('s2'); }
   fig.style.transitionDelay = (idx%4)*70+'ms';
   fig.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy"><figcaption>${item.label}</figcaption>`;
   mosaic.appendChild(fig);
@@ -1265,9 +1291,18 @@ document.getElementById('filters').addEventListener('click', (e)=>{
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   const filter = btn.dataset.filter;
-  document.querySelectorAll('#mosaic figure').forEach(fig=>{
+  const figures = Array.from(document.querySelectorAll('#mosaic figure'));
+  figures.forEach(fig=>{
+    fig.classList.remove('s2');
     fig.classList.toggle('hide', filter!=='all' && fig.dataset.cat!==filter);
   });
+  const visible = figures.filter(fig=>!fig.classList.contains('hide'));
+  if(filter==='all'){
+    [0,10].forEach(i=>figures[i]?.classList.add('s2'));
+  }else if(visible.length){
+    visible[0].classList.add('s2');
+    if(visible.length>5){ visible[4].classList.add('s2'); }
+  }
   if(window.dataLayer){ window.dataLayer.push({event:'galeria_filtro', filtro: filter}); }
 });
 
@@ -1275,6 +1310,7 @@ document.getElementById('filters').addEventListener('click', (e)=>{
 const lightbox = document.getElementById('lightbox');
 const lbImg = document.getElementById('lbImg');
 const lbCounter = document.getElementById('lbCounter');
+const lbCaption = document.getElementById('lbCaption');
 let currentIdx = 0;
 function visibleItems(){
   return Array.from(document.querySelectorAll('#mosaic figure:not(.hide)')).map(f=>parseInt(f.dataset.idx));
@@ -1287,7 +1323,9 @@ function openLightbox(idx){
   const vis = visibleItems();
   const pos = vis.indexOf(idx)+1;
   lbCounter.textContent = String(pos).padStart(2,'0') + ' / ' + String(vis.length).padStart(2,'0');
+  lbCaption.textContent = item.label;
   lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false');
   document.body.style.overflow='hidden';
   if(window.dataLayer){ window.dataLayer.push({event:'galeria_imagem_aberta', imagem: item.src}); }
 }
@@ -1296,7 +1334,29 @@ mosaic.addEventListener('click', (e)=>{
   if(!fig) return;
   openLightbox(parseInt(fig.dataset.idx));
 });
-function closeLightbox(){ lightbox.classList.remove('open'); document.body.style.overflow=''; }
+mosaic.addEventListener('keydown', (e)=>{
+  const fig = e.target.closest('figure');
+  if(!fig || (e.key!=='Enter' && e.key!==' ')) return;
+  e.preventDefault();
+  openLightbox(parseInt(fig.dataset.idx));
+});
+function closeLightbox(){ lightbox.classList.remove('open'); lightbox.setAttribute('aria-hidden', 'true'); document.body.style.overflow=''; document.getElementById('lbPrev').style.display=''; document.getElementById('lbNext').style.display=''; lbCounter.style.display=''; }
+/* Generic single-image zoom for sections outside the main gallery (e.g. Matéria-prima images) */
+function openSimpleLightbox(src, alt){
+  lbImg.src = src;
+  lbImg.alt = alt || '';
+  lbCaption.textContent = alt || '';
+  document.getElementById('lbPrev').style.display = 'none';
+  document.getElementById('lbNext').style.display = 'none';
+  lbCounter.style.display = 'none';
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+document.querySelectorAll('.materia-imgs img').forEach(img=>{
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', ()=> openSimpleLightbox(img.src, img.alt));
+});
 document.getElementById('lbClose').addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) closeLightbox(); });
 function navLightbox(dir){
