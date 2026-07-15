@@ -624,7 +624,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
 <section class="section" id="origem">
   <div class="wrap split">
     <div class="split-img reveal">
-      <img src="assets/destaques/origem-bandeja.webp" alt="Bandeja em mármore que remete à campanha O Bem de Bandeja, origem da Pedra Nobre Concept" loading="lazy">
+      <img src="assets/galeria/cliente-conjuntos-adornos-01.webp" alt="Composição de perfumaria com borboletas douradas sobre bandeja de mármore, peça autoral Pedra Nobre Concept" loading="lazy">
     </div>
     <div class="split-text reveal">
       <span class="eyebrow">Origem</span>
@@ -654,7 +654,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
         <div class="linha-body"><h3>Conjuntos decorativos</h3><p>Bandejas, saboneteiras, difusores, porta-joias, lixeiras, toalheiros e acessórios.</p></div>
       </div>
       <div class="linha-card reveal">
-        <div class="img-wrap"><span class="linha-num">03</span><img src="assets/galeria/baby-maternidade-05.webp" alt="Prato giratório em rocha natural para servir e compor a mesa" loading="lazy"></div>
+        <div class="img-wrap"><span class="linha-num">03</span><img src="assets/galeria/cliente-tableware-talheres.webp" alt="Organizador de talheres em rocha natural para mesa posta" loading="lazy"></div>
         <div class="linha-body"><h3>Tableware e cozinha</h3><p>Boleiras, pratos giratórios, sousplats, queijeiras, fruteiras e porta-detergentes.</p></div>
       </div>
       <div class="linha-card reveal">
@@ -782,7 +782,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
       </div>
     </div>
     <div class="reveal">
-      <img src="assets/galeria/mesa-posta-07.webp" alt="Escada e acabamentos em rocha natural integrados ao projeto de interiores" loading="lazy" style="border-radius:2px;">
+      <img src="assets/galeria/cliente-luminaria-luxo.webp" alt="Luminária sobre bancada em mármore verde, peça autoral em rocha natural" loading="lazy" style="border-radius:2px;">
     </div>
   </div>
 </section>
@@ -815,11 +815,9 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
       </div>
       <div class="filters" id="filters">
         <button class="filter-btn active" data-filter="all">Todas</button>
-        <button class="filter-btn" data-filter="adornos">Adornos</button>
-        <button class="filter-btn" data-filter="lavabos">Conjuntos</button>
-        <button class="filter-btn" data-filter="mesa">Mesa &amp; cozinha</button>
+        <button class="filter-btn" data-filter="conjuntos-adornos">Conjuntos e Adornos</button>
+        <button class="filter-btn" data-filter="cozinha-mesa">Cozinha &amp; Mesa</button>
         <button class="filter-btn" data-filter="babykids">Baby &amp; Kids</button>
-        <button class="filter-btn" data-filter="maternidade">Maternidade</button>
       </div>
     </div>
     <div class="mosaic reveal" id="mosaic"></div>
@@ -875,7 +873,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
           </select>
         </div>
       </div>
-      <div class="field">
+      <div class="field" id="chipGroupField">
         <label>Tipo de peça *</label>
         <div class="chip-group" id="chipGroup" data-required="true">
           <button type="button" class="chip">Adorno decorativo</button>
@@ -887,6 +885,7 @@ section[id], #topo{scroll-margin-top:var(--header-h);}
           <button type="button" class="chip">Presente personalizado</button>
           <button type="button" class="chip">Outro</button>
         </div>
+        <p class="chip-hint" id="chipHint" style="display:none;color:#B3542E;font-size:12.5px;margin-top:8px;">Selecione ao menos um tipo de peça para poder enviar.</p>
       </div>
       <div class="field"><label for="ambiente">Ambiente ou ocasião *</label><input type="text" id="ambiente" name="ambiente" placeholder="Ex: lavabo social, chá de bebê, aniversário..." required></div>
       <div class="field"><label for="referencia">Já tem referência ou projeto? *</label>
@@ -1157,7 +1156,7 @@ document.querySelectorAll('.faq-item').forEach((item, index)=>{
 
 /* ---------- Chips (tipo de peça) ---------- */
 document.querySelectorAll('#chipGroup .chip').forEach(chip=>{
-  chip.addEventListener('click', ()=>{ chip.classList.toggle('selected'); validateForm(); });
+  chip.addEventListener('click', ()=>{ formTouched = true; chip.classList.toggle('selected'); validateForm(); });
 });
 
 /* ---------- Form validation lock ---------- */
@@ -1165,6 +1164,7 @@ const orcForm = document.getElementById('orcForm');
 const submitBtn = document.getElementById('formSubmitBtn');
 const requiredFieldIds = ['nome','whats','cidade','tipoPessoa','ambiente','referencia'];
 
+let formTouched = false;
 function validateForm(){
   let valid = true;
   requiredFieldIds.forEach(id=>{
@@ -1173,6 +1173,8 @@ function validateForm(){
   });
   const tipoPecaSelected = document.querySelectorAll('#chipGroup .chip.selected').length > 0;
   if(!tipoPecaSelected) valid = false;
+  const chipHint = document.getElementById('chipHint');
+  if(chipHint){ chipHint.style.display = (formTouched && !tipoPecaSelected) ? '' : 'none'; }
   submitBtn.disabled = !valid;
   return valid;
 }
@@ -1188,7 +1190,7 @@ requiredFieldIds.forEach(id=>{
 validateForm(); // set initial disabled state
 
 /* ---------- Form submit -> Planilha (Google Sheets) + WhatsApp ---------- */
-/* https://script.google.com/macros/s/AKfycbxS2F80LlnyXmVG_NuEDFtg7UIvE693VSJUpfLq3gPlDDLDsVfp0hWlf13HT0HUGR4gFw/exec */
+/* Cole aqui a URL do seu Web App do Google Apps Script (veja o passo a passo enviado no chat) */
 const GOOGLE_SHEETS_WEBHOOK_URL = 'COLE_AQUI_A_URL_DO_APPS_SCRIPT';
 
 orcForm.addEventListener('submit', function(e){
@@ -1242,27 +1244,62 @@ orcForm.addEventListener('submit', function(e){
 
 /* ---------- Gallery data ---------- */
 const galeriaItems = [
-  {src:'assets/galeria/baby-maternidade-01.webp', cat:'adornos', label:'Adornos', alt:'Lareira móvel em travertino com chama embutida'},
-  {src:'assets/galeria/baby-maternidade-03.webp', cat:'adornos', label:'Adornos', alt:'Vasos e cachepôs autorais em rocha natural'},
-  {src:'assets/galeria/lavabo-03.webp', cat:'adornos', label:'Adornos', alt:'Arandela esculpida em rocha natural com iluminação embutida'},
-
-  {src:'assets/galeria/cozinha-04.webp', cat:'lavabos', label:'Conjuntos', alt:'Porta-lenços em rocha natural para lavabo'},
-  {src:'assets/galeria/cozinha-07.webp', cat:'lavabos', label:'Conjuntos', alt:'Kit de bancada branco com difusor e acessórios para lavabo'},
-  {src:'assets/galeria/lavabo-07.webp', cat:'lavabos', label:'Conjuntos', alt:'Bandeja com difusor e acessórios em rocha natural'},
-  {src:'assets/galeria/mesa-posta-02.webp', cat:'lavabos', label:'Conjuntos', alt:'Lixeira autoral em rocha natural para banheiro'},
-  {src:'assets/galeria/mesa-posta-04.webp', cat:'lavabos', label:'Conjuntos', alt:'Bancada de lavabo composta com acessórios em rocha natural'},
-  {src:'assets/galeria/mesa-posta-05.webp', cat:'lavabos', label:'Conjuntos', alt:'Conjunto de bandeja, saboneteira e difusor em travertino'},
-  {src:'assets/galeria/mobiliario-02.webp', cat:'lavabos', label:'Conjuntos', alt:'Bancada iluminada com acessórios em rocha natural'},
-
-  {src:'assets/galeria/baby-maternidade-06.webp', cat:'mesa', label:'Mesa & cozinha', alt:'Prato giratório em rocha natural para servir à mesa'},
-
-  {src:'assets/galeria/lavabo-05.webp', cat:'mesa', label:'Mesa & cozinha', alt:'Mesa de reunião autoral em rocha natural'},
-  {src:'assets/galeria/mesa-posta-08.webp', cat:'mesa', label:'Mesa & cozinha', alt:'Mesa de jantar em rocha natural integrada ao ambiente'},
-  {src:'assets/galeria/mobiliario-01.webp', cat:'mesa', label:'Mesa & cozinha', alt:'Mesa de jantar autoral com tampo em rocha natural'},
-
-  {src:'assets/galeria/adornos-03.webp', cat:'babykids', label:'Baby & Kids', alt:'Bandejas e caixas lúdicas em formas autorais para quarto infantil'},
-
-  {src:'assets/galeria/cozinha-01.webp', cat:'maternidade', label:'Maternidade', alt:'Caixa personalizada em rocha natural com toalhas para maternidade'}
+  {src:'assets/galeria/cliente-conjuntos-adornos-01.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (01)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-02.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (02)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-03.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (03)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-04.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (04)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-05.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (05)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-06.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (06)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-07.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (07)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-08.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (08)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-09.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (09)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-10.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (10)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-11.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (11)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-12.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (12)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-13.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (13)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-14.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (14)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-15.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (15)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-16.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (16)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-17.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (17)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-18.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (18)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-19.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (19)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-20.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (20)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-21.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (21)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-22.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (22)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-23.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (23)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-24.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (24)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-25.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (25)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-26.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (26)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-27.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (27)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-28.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (28)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-29.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (29)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-30.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (30)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-32.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (32)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-33.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Peça em rocha natural da linha Conjuntos e Adornos (33)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-34.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Luminária sobre bandeja em mármore verde (34)'},
+  {src:'assets/galeria/cliente-conjuntos-adornos-35.webp', cat:'conjuntos-adornos', label:'Conjuntos e Adornos', alt:'Luminária sobre bandeja em mármore verde, vista de detalhe (35)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-01.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (01)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-02.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (02)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-03.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (03)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-04.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (04)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-05.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (05)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-06.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (06)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-07.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (07)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-08.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (08)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-11.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (11)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-12.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (12)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-13.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (13)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-14.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (14)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-15.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (15)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-16.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (16)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-17.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (17)'},
+  {src:'assets/galeria/cliente-cozinha-mesa-18.webp', cat:'cozinha-mesa', label:'Cozinha & Mesa', alt:'Peça em rocha natural da linha Cozinha & Mesa (18)'},
+  {src:'assets/galeria/cliente-babykids-01.webp', cat:'babykids', label:'Baby & Kids', alt:'Peça em rocha natural da linha Baby & Kids (01)'},
+  {src:'assets/galeria/cliente-babykids-02.webp', cat:'babykids', label:'Baby & Kids', alt:'Peça em rocha natural da linha Baby & Kids (02)'},
+  {src:'assets/galeria/cliente-babykids-03.webp', cat:'babykids', label:'Baby & Kids', alt:'Peça em rocha natural da linha Baby & Kids (03)'},
+  {src:'assets/galeria/cliente-babykids-04.webp', cat:'babykids', label:'Baby & Kids', alt:'Peça em rocha natural da linha Baby & Kids (04)'},
+  {src:'assets/galeria/cliente-babykids-05.webp', cat:'babykids', label:'Baby & Kids', alt:'Peça em rocha natural da linha Baby & Kids (05)'},
+  {src:'assets/galeria/cliente-babykids-06.webp', cat:'babykids', label:'Baby & Kids', alt:'Peça em rocha natural da linha Baby & Kids (06)'}
 ];
 
 const mosaic = document.getElementById('mosaic');
