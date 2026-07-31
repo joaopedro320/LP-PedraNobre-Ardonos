@@ -1,0 +1,115 @@
+PEDRA NOBRE CONCEPT — DUAS LPs NO MESMO PROJETO
+================================================
+
+COMO FICOU (mesmo esquema da LP de Revestimentos)
+--------------------------------------------------
+concept.pedranobre.com.br          ->  LP COM formulário
+concept.pedranobre.com.br/wp       ->  LP SÓ WhatsApp (idêntica, sem formulário)
+
+
+>>> LEIA ISTO PRIMEIRO: UM BUG QUE JÁ EXISTIA E FOI CORRIGIDO <<<
+------------------------------------------------------------------
+No ZIP que você me mandou, o site estava QUEBRADO. Nenhuma imagem carregava.
+
+O motivo: o index.html procura as imagens em "assets/galeria/", "assets/hero/",
+"assets/logo/" e "assets/destaques/". Mas no ZIP essas pastas estavam soltas na
+raiz (galeria/, hero/, logo/, destaques/) e no lugar da pasta "assets" havia um
+arquivo VAZIO de 1 byte chamado "assets".
+
+Provavelmente foi o Git/GitHub que engoliu a pasta assets no commit.
+
+CORRIGI: criei a pasta assets/ de verdade e coloquei as cinco pastas dentro.
+Conferi as 73 imagens citadas no HTML — todas existem e agora carregam (testei
+as duas rotas rodando um servidor local, zero erro 404).
+
+Se você tivesse subido o ZIP como estava, a LP iria ao ar sem NENHUMA foto.
+
+
+ESTRUTURA DE PASTAS (suba o CONTEÚDO desta pasta na Vercel)
+------------------------------------------------------------
+SUBIR-NA-VERCEL-CONCEPT/
+├── index.html          <- LP principal, COM formulário   (rota: / )
+├── vercel.json         <- cache das imagens
+├── assets/
+│   ├── destaques/      (6 imagens)
+│   ├── galeria/        (100 imagens)
+│   ├── hero/           (1 imagem)
+│   ├── logo/           (3 imagens)
+│   └── secoes/         (6 imagens)
+└── wp/
+    └── index.html      <- LP SÓ WhatsApp                 (rota: /wp )
+
+Não precisa configurar rota nenhuma: a Vercel entende a pasta wp/ sozinha.
+As duas URLs funcionam com ou sem a barra final (/wp e /wp/).
+
+Esta LP é um arquivo único: o CSS e o JavaScript já vêm dentro do index.html.
+Por isso não existe style.css nem script.js aqui, diferente da LP de Revestimentos.
+
+
+O QUE MUDA NA VERSÃO /wp
+-------------------------
+1. O formulário sumiu por completo (campos, chips de "tipo de peça", validação e
+   o JavaScript de envio). Na mesma seção #contato, com o mesmo título e no mesmo
+   lugar, entrou um card com botão direto pro WhatsApp.
+
+2. Os outros botões de CTA JÁ iam pro WhatsApp nesta LP — menu, hero, consultar
+   peças, criar peça personalizada, Baby & Kids, arquitetos, CTA final e o botão
+   flutuante. Todos continuam iguais, com as mensagens que já existiam.
+   Só o formulário precisou virar botão. São 11 pontos de contato no total.
+
+3. Rastreamento: como não existe mais envio de formulário, a conversão virou o
+   clique no WhatsApp. Adicionei disparo de:
+     - dataLayer -> evento "lead_whatsapp" (com cta_location)
+     - Meta Pixel -> evento "Contact"
+   >> Configure no GTM (container GTM-PXGKFQ5P) a conversão apontando pro evento
+      "lead_whatsapp" nessa página, senão você fica sem medir a /wp.
+
+4. UTMs: se a pessoa vier de anúncio, os parâmetros são anexados no fim da
+   mensagem do WhatsApp:
+       Olá, vim pelo site da Pedra Nobre Concept...
+       [origem: utm_source=meta | utm_campaign=concept-jul]
+
+5. SEO: a /wp está com robots "noindex, nofollow". Assim ela não compete com a
+   LP principal no Google. Se quiser que apareça no orgânico, me avisa.
+
+
+NÚMERO DE WHATSAPP — NÃO MEXI, PRECISO DA SUA CONFIRMAÇÃO
+----------------------------------------------------------
+O número desta LP é OUTRO, diferente do de Revestimentos:
+
+    Concept:        55 37 99985-8552   ->  wa.me/5537999858552   (como está hoje)
+    Revestimentos:  55 37 9823-4134    ->  wa.me/553798234134    (já sem o 9)
+
+Como é uma linha diferente, NÃO tirei o 9 daqui por conta própria. Se eu tirasse
+e a conta estivesse cadastrada com o 9, todos os 11 botões da LP quebrariam.
+
+>> Me confirma: tira o 9 da Concept também? Se sim, fica wa.me/553799858552
+   e eu troco nos dois arquivos em um minuto.
+
+Do jeito mais rápido de testar: abra o WhatsApp e tente mandar mensagem pro
+número sem o 9. Se abrir a conversa certa, pode tirar.
+
+
+OUTRAS PENDÊNCIAS QUE JÁ EXISTIAM (não são do /wp)
+---------------------------------------------------
+- FORMULÁRIO NÃO SALVA EM LUGAR NENHUM. No index.html principal, a linha do
+  Apps Script está com o texto de exemplo:
+      const GOOGLE_SHEETS_WEBHOOK_URL = 'COLE_AQUI_A_URL_DO_APPS_SCRIPT';
+  Do jeito que está, quem preenche o formulário é mandado pro WhatsApp, mas o
+  lead NÃO é gravado em planilha nenhuma. Se a pessoa não clicar em "enviar" no
+  WhatsApp depois, o contato se perde. Cole a URL do Apps Script ali (é o mesmo
+  processo que você já fez na LP de Revestimentos).
+  >> Na /wp isso não é problema, porque lá não existe formulário.
+
+- og:image está em caminho relativo ("assets/hero/hero-lavabo-concept.webp").
+  Trocar pela URL absoluta (https://concept.pedranobre.com.br/assets/hero/...)
+  nos DOIS arquivos, senão a prévia do link no WhatsApp e no Facebook sai sem
+  imagem.
+
+- A pasta assets/secoes/ tem 6 imagens (linha-adornos, linha-babykids,
+  linha-lavabos, linha-maternidade, linha-mobiliario, linha-tableware) que NÃO
+  são usadas em lugar nenhum do HTML. Deixei no pacote por segurança, mas dá
+  pra apagar se não forem entrar.
+
+- As fontes BR Omny e Autography (do guia de marca) seguem substituídas por
+  Montserrat e Beau Rivage até a licença webfont chegar.
